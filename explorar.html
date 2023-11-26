@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulação de Aposentadoria</title>
+    <link rel="stylesheet" href="interface.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: rgb(160, 160, 160);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .box-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .box img {
+            border-radius: 20px;
+            width: 100px;
+            height: 100px;
+            background-color: white;
+            margin: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .box img:hover {
+            box-shadow: 0px 0px 10px 0px black;
+        }
+
+        .box img {
+            width: 50%;
+            height: auto;
+        }
+
+        .label {
+            margin-top: 5px;
+        }
+
+        @media (max-width: 600px) {
+            .box-container {
+                flex-direction: column; /* Muda para coluna em telas menores */
+                height: 200vw;
+            }
+        }
+
+        .titulo {
+            color: #333;
+            margin-top: 20px;
+        }
+
+        hr {
+            width: 80%;
+            border: 1px solid #333;
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input {
+            border-radius: 100px;
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #resultado {
+            margin-top: 20px;
+            color: #333;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box-container">
+        <h1 class="titulo">Simulação de Aposentadoria</h1>
+        <hr>
+        <div>
+            <label for="genero">Gênero:</label>
+            <input type="radio" id="generoMasculino" name="genero" value="masculino" checked> Masculino
+            <input type="radio" id="generoFeminino" name="genero" value="feminino"> Feminino
+
+            <label for="idade">Idade:</label>
+            <input type="number" id="idade" placeholder="Idade"><br><br>
+
+            <label for="calculoSalario">Cálculo dos salários + 60% + 2%:</label>
+            <input type="text" id="calculoSalario" placeholder="Cálculo dos salários + 60% + 2%"><br><br>
+
+            <label for="tempoContribuicao">Tempo de contribuição:</label>
+            <input type="text" id="tempoContribuicao" placeholder="Tempo de contribuição"><br><br>
+
+            <label for="porcentagemVantagem">Porcentagem de vantagem:</label>
+            <input type="text" id="porcentagemVantagem" placeholder="Porcentagem de vantagem"><br><br>
+
+            <button onclick="calcularAposentadoria()">Calcular Aposentadoria</button>
+
+            <p id="resultado"></p>
+        </div>
+    </div>
+    <nav class="menu-h">
+        <ul>
+            <li><a href="interface.html"><img class="imagem" src="i.jpeg" alt=""></a></li>
+            <li><a href="explorar.html"><img class="imagem" src="e.jpeg" alt=""></a></li>
+            <li><a href="agendamento.html"><img class="imagem" src="c.jpeg" alt=""></a></li>
+            <li><a href="perfil.html"><img class="imagem" src="p.jpeg" alt=""></a></li>
+        </ul>
+    </nav>
+
+    <script>
+        function calcularAposentadoria() {
+            var idade = parseInt(document.getElementById('idade').value);
+            var calculoSalario = document.getElementById('calculoSalario').value;
+            var tempoContribuicao = document.getElementById('tempoContribuicao').value;
+            var porcentagemVantagem = document.getElementById('porcentagemVantagem').value;
+            var genero = document.querySelector('input[name="genero"]:checked').value;
+
+            // Adicione a lógica de cálculo da aposentadoria aqui, usando as variáveis acima
+
+            // Exemplo de exibição do resultado
+            var resultado = "Simulação de aposentadoria para " + genero + ". Adicione sua lógica de cálculo aqui.";
+            document.getElementById('resultado').innerHTML = resultado;
+        }
+    </script>
+</body>
+
+</html>
